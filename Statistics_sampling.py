@@ -1,6 +1,5 @@
 import numpy as np, matplotlib.pyplot as plt
 from scipy import stats
-from scipy import special
 
 show = True
 #95% interval
@@ -36,9 +35,7 @@ points = len(S)
 paths = np.zeros((N,points))
 x = np.linspace(0, 1, num=N, endpoint=True)
 for i in range(points):
-    paths[:,i] = stats.binom.pmf(S[i], Eggs[i], x) * (Eggs[i]+1)
-    #paths[:,i] = (stats.binom.cdf(S[i], Eggs[i], x-1/N) - stats.binom.cdf(S[i], Eggs[i], x))*N
-    
+    paths[:,i] = stats.binom.pmf(S[i], Eggs[i], x) * (Eggs[i]+1) 
     
     
     if show:
@@ -67,7 +64,6 @@ for i in range(points):
     
     
     
-    #print(int_paths[b+a,i] - int_paths[b,i])
 Certaincy_interval = []
 for i in range(points):
     temp = np.array(int_index_list[i])
